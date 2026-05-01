@@ -1,0 +1,47 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+/* Pengaturan Dasar Body */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #E2E2E2; /* Warna dasar abu-abu terang */
+    color: #2D2D2D; /* Warna teks hitam pekat */
+}
+
+/* Pengaturan untuk Model 3D */
+model-viewer {
+    width: 100%;
+    height: 100%;
+    --poster-color: transparent;
+}
+
+
+/* ================= NAVBAR STYLES ================= */
+.nav-link {
+    color: #2D2D2D;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+/* Efek warna kuning saat di-hover (disorot mouse) */
+.nav-link:hover {
+    color: #F5B50A;
+}
+
+/* Garis bawah animasi bergaya retro */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background-color: #F5B50A;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}

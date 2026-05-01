@@ -2,24 +2,33 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Portfolio; // Jembatan yang wajib ada
 
-class DatabaseSeeder extends Seeder
+class PortfolioSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // 1. Bersihkan tabel dulu
+        Portfolio::truncate();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // 2. Data karyamu yang baru
+        Portfolio::create([
+            'judul' => 'Web Design',
+            'image' => 'web-design.jpg',
+            'icon'  => 'fa-solid fa-desktop',
+        ]);
+
+        Portfolio::create([
+            'judul' => 'Mobile App',
+            'image' => 'mobile-app.jpg',
+            'icon'  => 'fa-solid fa-mobile-screen-button',
+        ]);
+
+        Portfolio::create([
+            'judul' => 'Graphic Design',
+            'image' => 'graphic-design.jpg',
+            'icon'  => 'fa-solid fa-palette',
         ]);
     }
 }
