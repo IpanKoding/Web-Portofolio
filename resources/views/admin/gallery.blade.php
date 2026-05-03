@@ -17,14 +17,24 @@
             document.querySelector('input[name="file_upload"]').value = "";
             document.querySelector('input[name="file_konten"]').value = "";
 
-            if (tipe === 'gambar' || tipe === 'video') {
+            // KODINGAN YANG DIUBAH: SEKARANG '3d' JUGA PAKAI UPLOAD FILE
+            if (tipe === 'gambar' || tipe === 'video' || tipe === '3d') {
                 divUpload.classList.remove('hidden');
                 divLink.classList.add('hidden');
-                labelUpload.innerText = tipe === 'gambar' ? 'Upload Gambar (.jpg, .png, .webp)' : 'Upload Video (.mp4)';
+                
+                // Menyesuaikan label sesuai tipe
+                if (tipe === 'gambar') {
+                    labelUpload.innerText = 'Upload Gambar (.jpg, .png, .webp)';
+                } else if (tipe === 'video') {
+                    labelUpload.innerText = 'Upload Video (.mp4, .mov, .avi, .mkv)';
+                } else if (tipe === '3d') {
+                    labelUpload.innerText = 'Upload 3D Model (.glb)';
+                }
             } else {
+                // UNTUK YOUTUBE LINK
                 divUpload.classList.add('hidden');
                 divLink.classList.remove('hidden');
-                labelLink.innerText = tipe === '3d' ? 'Link 3D Model (.glb)' : 'Link Video YouTube';
+                labelLink.innerText = 'Link Video YouTube';
             }
         }
     </script>
@@ -65,15 +75,17 @@
                         <label class="font-black block text-sm uppercase">Tipe Konten</label>
                         <select name="tipe_konten" id="tipe_konten" onchange="ubahInput()" class="w-full border-4 border-black p-2 rounded-xl font-bold">
                             <option value="gambar">Gambar (Upload File)</option>
-                            <option value="video">Video (Upload MP4)</option>
+                            <option value="video">Video (Upload MP4/MKV)</option>
                             <option value="video_link">Video (Link YouTube)</option>
-                            <option value="3d">3D Model (Masukkan Link)</option>
+                            <option value="3d">3D Model (Upload GLB)</option>
                         </select>
                     </div>
 
                     <div id="input_upload">
+                        <!-- LABEL INI AKAN BERUBAH-UBAH TERGANTUNG PILIHAN DROPDOWN -->
                         <label id="label_upload" class="font-black block text-sm uppercase">Upload Gambar (.jpg, .png, .webp)</label>
-                        <input type="file" name="file_upload" class="w-full border-4 border-black p-2 rounded-xl font-bold bg-gray-100">
+                        <!-- ACCEPT SUDAH DITAMBAH .MKV DAN .GLB -->
+                        <input type="file" name="file_upload" accept=".jpg,.jpeg,.png,.webp,.mp4,.mov,.avi,.mkv,.glb" class="w-full border-4 border-black p-2 rounded-xl font-bold bg-gray-100">
                     </div>
 
                     <div id="input_link" class="hidden">
@@ -98,7 +110,6 @@
                                 @elseif($gal->tipe_konten == 'video')
                                     <video autoplay muted loop class="w-full h-full object-cover"><source src="{{ asset('assets/img/'.$gal->file_konten) }}" type="video/mp4"></video>
                                 
-                                <!-- INI YANG DIUBAH: SEKARANG YOUTUBE BISA LANGSUNG DIPLAY DI ADMIN -->
                                 @elseif($gal->tipe_konten == 'video_link')
                                     <iframe src="{{ $gal->file_konten }}" class="w-full h-full object-cover" allowfullscreen></iframe>
                                 

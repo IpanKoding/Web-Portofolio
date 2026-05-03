@@ -8,6 +8,47 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <style>
+        /* Import Font Bubbly (Fredoka One) khusus untuk Heading */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+        
+        /* Custom Class untuk Font Bulat */
+        .font-display {
+            font-family: 'Fredoka One', cursive;
+            letter-spacing: 0.02em;
+        }
+
+        /* Efek Outline untuk Background Text Table of Content */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #cfcfcf;
+        }
+        
+        /* Efek Garis Bawah Kuning Terputus untuk judul Portofolio */
+        .underline-split {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .underline-split::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 45%;
+            height: 4px;
+            background-color: #F5B50A;
+        }
+        .underline-split::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 45%;
+            height: 4px;
+            background-color: #F5B50A;
+        }
+    </style>
 </head>
 <body class="bg-[#E2E2E2] text-[#2D2D2D] relative overflow-x-hidden">
 
@@ -31,7 +72,20 @@
         <section id="home" class="min-h-[80vh] flex flex-col md:flex-row items-center mb-20">
             <div class="w-full md:w-1/2 relative z-10">
                 <span class="bg-[#F5B50A] text-black px-4 py-1 rounded-full font-bold text-sm border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] inline-block mb-4">Creative Visual</span>
-                <h1 class="text-[5rem] md:text-[8rem] font-black leading-[0.85] tracking-tighter mb-8">PORTO<br>FOLO<span class="text-[#F5B50A]">.</span></h1>
+                
+                <div class="relative mt-4 mb-8">
+                    <span class="text-[#F5B50A] absolute -top-10 -left-6 text-7xl font-display">"</span>
+                    <!-- Menggunakan font-display untuk PORTO FOLO -->
+                    <h1 class="text-[5.5rem] md:text-[8.5rem] font-display leading-[0.85] tracking-tight uppercase text-[#2D2D2D]">
+                        <div class="relative inline-block">
+                            <!-- Oval Yellow Background -->
+                            <span class="absolute inset-0 bg-[#F5B50A] rounded-[40px] scale-x-[1.1] scale-y-[1.1] -z-10 translate-x-4"></span>
+                            PORTO
+                        </div>
+                        <br>FOLO<span class="text-[#F5B50A] text-8xl md:text-9xl">.</span>
+                    </h1>
+                </div>
+
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full border border-black flex items-center justify-center"><i class="fa-solid fa-chevron-right text-xs"></i></div>
                     <span class="font-bold">Ivan Developer</span>
@@ -41,7 +95,13 @@
             <div class="w-full md:w-1/2 h-[500px] relative flex items-center justify-center mt-10 md:mt-0">
                 <div class="absolute w-[300px] md:w-[400px] h-[300px] md:h-[400px] border border-gray-400 rounded-full"></div>
                 <div class="absolute bottom-10 right-10 w-[200px] md:w-[280px] h-[250px] md:h-[350px] bg-[#F5B50A] rounded-tl-[80px] rounded-br-[40px]"></div>
-                <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" class="w-full h-full z-10"></model-viewer>
+                <!-- BAGIAN INI YANG DIUBAH MAZEH: Manggil file GLB milikmu sendiri dengan lazy loading -->
+                <model-viewer 
+                    src="{{ asset('assets/img/asset.glb') }}" 
+                    loading="lazy"
+                    poster="{{ asset('assets/img/placeholder-3d.png') }}"
+                    auto-rotate camera-controls disable-zoom shadow-intensity="1" class="w-full h-full z-10">
+                </model-viewer>
             </div>
         </section>
 
@@ -70,36 +130,130 @@
             </div>
 
             <div class="md:col-span-2">
-                <h2 class="text-6xl font-black mb-8"><span class="text-[#F5B50A]">"</span>HELLO.</h2>
-                <p class="text-lg font-bold leading-relaxed mb-6">Saya Ivan, seorang mahasiswa pengembang web yang suka menggabungkan kode dinamis dengan visual kreatif.</p>
-                <p class="text-gray-600 font-medium mb-10 leading-loose">Dari membuat tampilan depan yang interaktif hingga sistem belakang yang rumit, saya menikmati setiap prosesnya.</p>
+                <!-- MENGGUNAKAN FONT DISPLAY UNTUK HELLO -->
+                <h2 class="text-6xl font-display mb-8"><span class="text-[#F5B50A]">"</span>HELLO.</h2>
+                <p class="text-lg font-bold leading-relaxed mb-6">Saya Muhammad Ivan Ardianto</p>
+                <p class="text-gray-600 font-medium mb-10 leading-loose">Saya adalah seorang Multimedia Specialist yang saat ini sedang menempuh pendidikan D3 Teknologi Multimedia Broadcasting di Politeknik Elektronika Negeri Surabaya (PENS), setelah sebelumnya menyelesaikan studi di MAN 1 Ponorogo dengan spesialisasi Keterampilan Multimedia. Saya memiliki penguasaan teknis yang kuat pada perangkat lunak standar industri seperti Adobe Premiere Pro, After Effects, Adobe Photoshop, dan Figma. Memiliki pengalaman langsung sebagai Editor, Videografer, dan Desainer Grafis di berbagai instansi dan perusahaan, termasuk Siniar PENS dan SF Group Service Enterprise. Saya dikenal sebagai individu yang adaptif, berorientasi pada detail, dan mampu bekerja sama di dalam tim untuk memproduksi konten visual kreatif secara efektif sesuai dengan tenggat waktu.</p>
                 
                 <div class="grid md:grid-cols-2 gap-8 border-t-4 border-black border-dotted pt-8">
                     <div>
                         <h4 class="font-black border-b-4 border-[#F5B50A] inline-block mb-4">EDUCATION</h4>
-                        <p class="font-bold">2026 - Informatics Engineering</p>
-                        <p class="text-sm text-gray-500 font-bold">Universitas Kamu - S.Kom</p>
+                        
+                        <!-- PENS -->
+                        <div class="mb-4">
+                            <p class="font-bold">2024 - 2027 <span class="bg-[#F5B50A] text-black px-2 py-0.5 rounded-full text-xs ml-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Studying</span></p>
+                            <p class="font-black text-sm mt-1">D3 Teknologi Multimedia Broadcasting</p>
+                            <p class="text-sm text-gray-600 font-bold">Politeknik Elektronika Negeri Surabaya</p>
+                        </div>
+
+                        <!-- MAN 1 PONOROGO -->
+                        <div>
+                            <p class="font-bold">2021 - 2024</p>
+                            <p class="font-black text-sm mt-1">IPS - Multimedia</p>
+                            <p class="text-sm text-gray-600 font-bold">MAN 1 Ponorogo</p>
+                        </div>
                     </div>
                     <div>
                         <h4 class="font-black border-b-4 border-[#F5B50A] inline-block mb-4">SOFTWARE SKILLS</h4>
-                        <div class="flex gap-4 text-3xl">
-                            <i class="fa-brands fa-laravel text-red-600"></i>
-                            <i class="fa-brands fa-php text-blue-700"></i>
-                            <i class="fa-brands fa-js text-yellow-500"></i>
-                            <i class="fa-brands fa-github"></i>
+                        
+                        <!-- CUSTOM SOFTWARE SKILLS LOGOS MAZEH! -->
+                        <div class="flex flex-wrap gap-3">
+                            <!-- Premiere Pro -->
+                            <div class="w-12 h-12 bg-[#00005B] text-[#E998FF] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe Premiere Pro">Pr</div>
+                            <!-- After Effects -->
+                            <div class="w-12 h-12 bg-[#00005B] text-[#9999FF] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe After Effects">Ae</div>
+                            <!-- Photoshop -->
+                            <div class="w-12 h-12 bg-[#001E36] text-[#31A8FF] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe Photoshop">Ps</div>
+                            <!-- Illustrator -->
+                            <div class="w-12 h-12 bg-[#330000] text-[#FF9A00] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe Illustrator">Ai</div>
+                            <!-- Figma -->
+                            <div class="w-12 h-12 bg-white text-black flex items-center justify-center rounded-xl font-black text-2xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Figma"><i class="fa-brands fa-figma"></i></div>
+                            <!-- Blender (Represented by 3D Cube) -->
+                            <div class="w-12 h-12 bg-orange-500 text-white flex items-center justify-center rounded-xl font-black text-2xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Blender 3D"><i class="fa-solid fa-cube"></i></div>
                         </div>
+
                     </div>
                 </div>
+
+                <!-- BAGIAN PENGALAMAN RELEVAN -->
+                <h4 class="font-black border-b-4 border-[#F5B50A] inline-block mb-6 mt-12">RELEVANT EXPERIENCE</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Siniar PENS -->
+                    <div class="relative pl-6 border-l-4 border-black">
+                        <div class="absolute w-3 h-3 bg-[#F5B50A] border-2 border-black rounded-full -left-[8px] top-1"></div>
+                        <p class="font-black text-lg">Video Editor</p>
+                        <p class="font-bold text-[#F5B50A] text-sm mb-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">SINIAR PENS | 2025 - 2027</p>
+                        <ul class="text-sm text-gray-600 font-medium space-y-1 list-disc list-inside">
+                            <li>Memproduksi dan mengedit konten podcast berkualitas tinggi.</li>
+                            <li>Berkolaborasi aktif dalam tim maupun bekerja mandiri secara efisien.</li>
+                            <li>Menguasai perangkat lunak editing standar industri.</li>
+                        </ul>
+                    </div>
+
+                    <!-- SF Group Enterprise -->
+                    <div class="relative pl-6 border-l-4 border-black">
+                        <div class="absolute w-3 h-3 bg-[#F5B50A] border-2 border-black rounded-full -left-[8px] top-1"></div>
+                        <p class="font-black text-lg">Graphic Designer</p>
+                        <p class="font-bold text-[#F5B50A] text-sm mb-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">Intern SF Group Enterprise | 2024 - 2025</p>
+                        <ul class="text-sm text-gray-600 font-medium space-y-1 list-disc list-inside">
+                            <li>Merancang materi visual untuk kebutuhan klien dan media sosial.</li>
+                            <li>Mengelola komunikasi yang efektif dengan klien untuk visi desain.</li>
+                            <li>Menghasilkan desain berkualitas di bawah tekanan tenggat waktu.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- HIMA MMB -->
+                    <div class="relative pl-6 border-l-4 border-black">
+                        <div class="absolute w-3 h-3 bg-[#F5B50A] border-2 border-black rounded-full -left-[8px] top-1"></div>
+                        <p class="font-black text-lg">Staff Media dan Informasi (Medfo)</p>
+                        <p class="font-bold text-[#F5B50A] text-sm mb-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">HIMA MMB PENS | 2025 - Sekarang</p>
+                        <ul class="text-sm text-gray-600 font-medium space-y-1 list-disc list-inside">
+                            <li>Merancang dan memproduksi aset visual publikasi program kerja himpunan.</li>
+                            <li>Mengelola dan menyusun jadwal konten untuk meningkatkan interaksi media sosial.</li>
+                            <li>Mendokumentasikan berbagai kegiatan organisasi kampus.</li>
+                        </ul>
+                    </div>
+
+                    <!-- MAN 1 Ponorogo -->
+                    <div class="relative pl-6 border-l-4 border-black">
+                        <div class="absolute w-3 h-3 bg-[#F5B50A] border-2 border-black rounded-full -left-[8px] top-1"></div>
+                        <p class="font-black text-lg">Designer, Videographer & Editor</p>
+                        <p class="font-bold text-[#F5B50A] text-sm mb-2 drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]">Multimedia Creative MAN 1 | 2021 - 2024</p>
+                        <ul class="text-sm text-gray-600 font-medium space-y-1 list-disc list-inside">
+                            <li>Bertanggung jawab penuh atas operasional kamera profesional.</li>
+                            <li>Mengedit foto/video dan memproduksi aset desain untuk media sosial.</li>
+                            <li>Mahir mengoperasikan Premiere Pro, After Effects, Photoshop, dan Illustrator.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- SECTION 3: PORTOFOLIO -->
-        <div id="portfolio" class="flex items-center gap-4 mb-12 pt-20">
-            <h3 class="font-bold text-lg italic underline decoration-[#F5B50A] decoration-4">Portofolio</h3>
-            <div class="flex-grow border-t-2 border-black"></div>
+        <div id="portfolio" class="flex items-center gap-4 mb-6 pt-20">
+            <!-- MENGGUNAKAN GARIS BAWAH KUNING TERPUTUS -->
+            <h3 class="font-black text-2xl italic underline-split text-[#2D2D2D] pb-1">Portofolio</h3>
+            <div class="flex-grow border-t-2 border-[#2D2D2D]"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+        <!-- BIG BACKGROUND TEXT TITLE (TABLE OF CONTENT) -->
+        <div class="relative text-center my-14 select-none flex justify-center items-center">
+            <!-- Outline Text Background -->
+            <h2 class="text-4xl md:text-6xl lg:text-[6rem] font-display absolute w-full inset-0 flex justify-center items-center text-outline z-0">
+                " TABLE OF CONTENT.
+            </h2>
+            <!-- Foreground Text -->
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-display relative z-10 flex items-center justify-center gap-3 md:gap-4 text-[#2D2D2D]">
+                TABLE 
+                <!-- Kotak hitam miring -->
+                <span class="bg-[#2D2D2D] text-[#F5B50A] px-3 py-1 rounded-lg text-2xl md:text-4xl -rotate-6 shadow-[2px_2px_0px_rgba(0,0,0,1)] border-2 border-black">OF</span> 
+                CONTENT<span class="text-[#F5B50A]">.</span>
+            </h2>
+        </div>
+
+        <!-- GRID BAWAAN KAMU -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32 relative z-10">
             @foreach ($portfolios as $item)
                 <div class="bg-white border-4 border-black p-5 rounded-2xl shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full cursor-pointer" onclick="bukaModal('modal-{{ $item->id }}')">
                     <div class="text-[#F5B50A] mb-4 flex justify-between items-center border-b-2 border-black pb-3">
@@ -134,7 +288,8 @@
                                     @endphp
                                     <div class="w-full h-full relative overflow-hidden rounded-[4px] bg-gray-200 {{ $spanClass }}">
                                         @if($gal->tipe_konten == 'gambar')
-                                            <img src="{{ asset('assets/img/' . $gal->file_konten) }}" class="w-full h-full object-cover">
+                                            <!-- BAGIAN INI YANG DIUBAH MAZEH: Menambahkan loading="lazy" pada img -->
+                                            <img src="{{ asset('assets/img/' . $gal->file_konten) }}" class="w-full h-full object-cover" loading="lazy">
                                         @elseif($gal->tipe_konten == 'video')
                                             <video class="w-full h-full object-cover" muted playsinline preload="metadata">
                                                 <source src="{{ asset('assets/img/' . $gal->file_konten) }}#t=0.1" type="video/mp4">
@@ -148,7 +303,8 @@
                                                     $yt_id = isset($yt_parts[1]) ? $yt_parts[1] : '';
                                                 }
                                             @endphp
-                                            <img src="https://img.youtube.com/vi/{{ $yt_id }}/hqdefault.jpg" class="w-full h-full object-cover">
+                                            <!-- BAGIAN INI YANG DIUBAH MAZEH: Menambahkan loading="lazy" pada img (thumbnail youtube) -->
+                                            <img src="https://img.youtube.com/vi/{{ $yt_id }}/hqdefault.jpg" class="w-full h-full object-cover" loading="lazy">
                                             <div class="absolute inset-0 bg-black/30 flex items-center justify-center"><i class="fa-brands fa-youtube text-white/80 text-xl md:text-3xl"></i></div>
                                         @elseif($gal->tipe_konten == '3d')
                                             <div class="w-full h-full bg-purple-800 flex items-center justify-center"><i class="fa-solid fa-cube text-white/50 text-xl md:text-3xl"></i></div>
@@ -183,15 +339,23 @@
                                 @foreach($item->galleries as $gal)
                                     <div class="break-inside-avoid w-full border-4 border-black rounded-2xl overflow-hidden bg-white shadow-[6px_6px_0px_rgba(0,0,0,1)] relative flex items-center justify-center {{ $gal->tipe_konten != 'gambar' ? 'h-[250px]' : '' }}">
                                         @if($gal->tipe_konten == 'gambar')
-                                            <img src="{{ asset('assets/img/' . $gal->file_konten) }}" class="w-full h-auto">
+                                            <!-- BAGIAN INI YANG DIUBAH MAZEH: Menambahkan loading="lazy" pada img di dalam modal -->
+                                            <img src="{{ asset('assets/img/' . $gal->file_konten) }}" class="w-full h-auto" loading="lazy">
                                         @elseif($gal->tipe_konten == 'video')
                                             <video autoplay muted loop playsinline class="w-full h-full object-cover border-none"><source src="{{ asset('assets/img/' . $gal->file_konten) }}" type="video/mp4"></video>
                                             <div class="absolute top-3 right-3 bg-red-500 text-white font-black px-3 py-1 rounded-full border-2 border-black text-xs shadow-[2px_2px_0px_rgba(0,0,0,1)] z-10"><i class="fa-solid fa-play"></i> VIDEO</div>
                                         @elseif($gal->tipe_konten == 'video_link')
-                                            <iframe src="{{ $gal->file_konten }}" allowfullscreen class="w-full h-full object-cover border-none"></iframe>
+                                            <!-- BAGIAN INI YANG DIUBAH MAZEH: Menambahkan loading="lazy" pada iframe YouTube di dalam modal -->
+                                            <iframe src="{{ $gal->file_konten }}" allowfullscreen class="w-full h-full object-cover border-none" loading="lazy"></iframe>
                                             <div class="absolute top-3 right-3 bg-red-600 text-white font-black px-3 py-1 rounded-full border-2 border-black text-xs shadow-[2px_2px_0px_rgba(0,0,0,1)] z-10"><i class="fa-brands fa-youtube"></i> YOUTUBE</div>
                                         @elseif($gal->tipe_konten == '3d')
-                                            <model-viewer src="{{ $gal->file_konten }}" auto-rotate camera-controls disable-zoom shadow-intensity="1" class="w-full h-full outline-none"></model-viewer>
+                                            <!-- BAGIAN INI YANG DIUBAH MAZEH: Menambahkan loading="lazy" dan poster pada model-viewer di dalam modal -->
+                                            <model-viewer 
+                                                src="{{ $gal->file_konten }}" 
+                                                loading="lazy"
+                                                poster="{{ asset('assets/img/placeholder-3d.png') }}"
+                                                auto-rotate camera-controls disable-zoom shadow-intensity="1" class="w-full h-full outline-none">
+                                            </model-viewer>
                                             <div class="absolute top-3 right-3 bg-purple-500 text-white font-black px-3 py-1 rounded-full border-2 border-black text-xs shadow-[2px_2px_0px_rgba(0,0,0,1)] z-10"><i class="fa-solid fa-cube"></i> 3D</div>
                                         @endif
                                     </div>
@@ -233,7 +397,7 @@
         </button>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS (MURNI BAWAAN KAMU) -->
     <script>
         function bukaModal(id) {
             const modal = document.getElementById(id);
@@ -253,7 +417,7 @@
         const chatWindow = document.getElementById('ai-chat-window');
         const chatBody = document.getElementById('chat-body');
         const chatInput = document.getElementById('chat-input');
-        const API_KEY = "AIzaSyAqHMe9O0q0UdMTlr5UYOzjDN5_4UcZrsA";
+        const API_KEY = "{{ env('GEMINI_API_KEY') }}";
         let chatOpen = false;
 
         function toggleChat() {
@@ -330,4 +494,4 @@
         }
     </script>
 </body>
-</html>
+</html> 

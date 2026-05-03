@@ -91,28 +91,38 @@ class AdminController extends Controller
             $fileName = time() . '_' . uniqid() . '.' . $request->file_upload->extension();  
             $request->file_upload->move(public_path('assets/img'), $fileName);
             $file_konten = $fileName;
+
         } elseif ($request->tipe_konten == 'video') {
-            $request->validate(['file_upload' => 'required|mimes:mp4,mov,avi|max:1048576']);
+            // HASIL LANGKAH 1: Format mkv sudah ditambahkan ke mimes
+            $request->validate(['file_upload' => 'required|mimes:mp4,mov,avi,mkv|max:1048576']);
             $fileName = time() . '_' . uniqid() . '.' . $request->file_upload->extension();  
             $request->file_upload->move(public_path('assets/img'), $fileName);
             $file_konten = $fileName;
+
+        } elseif ($request->tipe_konten == '3d' && $request->hasFile('file_upload')) {
+            // HASIL LANGKAH 1 BONUS: Sekarang bisa langsung upload file .glb!
+            // Kita pakai validasi file umum karena kadang server tidak otomatis mendeteksi mime GLB
+            $request->validate(['file_upload' => 'required|file|max:1048576']);
+            $fileName = time() . '_' . uniqid() . '.' . $request->file_upload->getClientOriginalExtension();  
+            $request->file_upload->move(public_path('assets/img'), $fileName);
+            $file_konten = $fileName;
+
         } else {
-            // UNTUK LINK (3D & YOUTUBE)
+            // UNTUK LINK (YOUTUBE ATAU EXTERNAL LINK 3D)
             $request->validate(['file_konten' => 'required']);
             $link = $request->file_konten;
             
-            // JURUS MAGIC REVISI: Sekarang support YouTube Shorts!
+            // JURUS MAGIC REVISI: Support YouTube Shorts
             if ($request->tipe_konten == 'video_link') {
                 if (strpos($link, 'youtube.com/watch?v=') !== false) {
                     $link = str_replace('watch?v=', 'embed/', $link);
                 } elseif (strpos($link, 'youtu.be/') !== false) {
                     $link = str_replace('youtu.be/', 'youtube.com/embed/', $link);
                 } elseif (strpos($link, 'youtube.com/shorts/') !== false) {
-                    // MENGUBAH LINK SHORTS JADI EMBED
                     $link = str_replace('youtube.com/shorts/', 'youtube.com/embed/', $link);
                 }
                 
-                // Bersihkan embel-embel link dari YouTube (seperti &t= atau ?si= atau ?feature=share)
+                // Bersihkan embel-embel link dari YouTube
                 $link = explode('&', $link)[0]; 
                 $link = explode('?si=', $link)[0];
                 $link = explode('?feature=', $link)[0];
@@ -131,9 +141,12 @@ class AdminController extends Controller
 
     public function destroyGallery($id) {
         $gallery = PortfolioGallery::findOrFail($id);
-        if (($gallery->tipe_konten == 'gambar' || $gallery->tipe_konten == 'video') && File::exists(public_path('assets/img/'.$gallery->file_konten))) {
+        
+        // PASTIKAN FILE GLB JUGA IKUT TERHAPUS DARI FOLDER JIKA DI-DELETE
+        if (($gallery->tipe_konten == 'gambar' || $gallery->tipe_konten == 'video' || $gallery->tipe_konten == '3d') && File::exists(public_path('assets/img/'.$gallery->file_konten))) {
             File::delete(public_path('assets/img/'.$gallery->file_konten));
         }
+        
         $gallery->delete();
         return back()->with('sukses', 'Isi Album Berhasil Dihapus!');
     }
