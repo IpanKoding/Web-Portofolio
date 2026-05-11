@@ -1,13 +1,5 @@
 # Website Portofolio Ivan
 
-## Identitas Mahasiswa
-- **Nama:** Muhammad Ivan Ardianto
-- **NIM:** [512450002]
-- **Kelas:** [MMB A D3 MULTIMEDIA BROADCASTING 2024]
-
-## Deskripsi
-Project Website Portofolio menggunakan Laravel, integrasi 3D Model Viewer, dan AI Chatbot Gemini untuk tugas akhir saya juga menambahkan fitur admin panel serta dapat melihat portofolio saya
-
 # Final Project Checklist: Web Portofolio Muhammad Ivan Ardianto
 
 Daftar ini menunjukkan progres fitur yang sudah berhasil diimplementasikan 100% pada website portofolio.
@@ -17,12 +9,14 @@ Daftar ini menunjukkan progres fitur yang sudah berhasil diimplementasikan 100% 
 
 ## 👤 Identitas Mahasiswa
 - **Nama:** Muhammad Ivan Ardianto
-- **NIM:** [Isi NIM Kamu di Sini]
-- **Kelas:** [Isi Kelas Kamu di Sini]
+- **NIM:** [512450002]
+- **Kelas:** [MMB A 2024]
 - **Program Studi:** D3 Teknologi Multimedia Broadcasting
 - **Kampus:** Politeknik Elektronika Negeri Surabaya (PENS)
 
----
+
+## Deskripsi
+Project Website Portofolio menggunakan Laravel, integrasi 3D Model Viewer, dan AI Chatbot Gemini untuk tugas akhir saya juga menambahkan fitur admin panel serta dapat melihat portofolio saya
 
 ## 📅 Development Timeline (Gantt Chart)
 
