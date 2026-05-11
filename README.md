@@ -44,7 +44,7 @@ Daftar ini menunjukkan progres fitur yang sudah berhasil diimplementasikan 100% 
 | **5. Security & Deployment** | | 🟩 | Done | 12 Mei 2026 |
 | - Environment Security (.env fix) | | 🟩 | ✅ | 22:30 WIB |
 | - Push GitHub & Collaborator | | 🟩 | ✅ | 23:10 WIB |
-| - **Dosen Approval (ACC)** | | 🟩 | 🏆 | **12 Mei 2026** |
+| - **Dosen Acc ADD REPOSITORY** | | 🟩 | 🏆 | **12 Mei 2026** |
 
 ---
 
