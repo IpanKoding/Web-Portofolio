@@ -19,11 +19,8 @@
     
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #E2E4E6; }
-        /* Custom Class untuk Font Bulat */
         .font-display { font-family: 'Fredoka One', cursive; letter-spacing: 0.02em; }
-        /* Efek Outline untuk Background Text Table of Content */
         .text-outline { color: transparent; -webkit-text-stroke: 2px #cfcfcf; }
-        /* Efek Garis Bawah Kuning Terputus untuk judul Portofolio */
         .underline-split { position: relative; display: inline-block; padding-bottom: 2px; }
         .underline-split::after { content: ''; position: absolute; left: 0; bottom: 0; width: 45%; height: 4px; background-color: #F5B50A; }
         .underline-split::before { content: ''; position: absolute; right: 0; bottom: 0; width: 45%; height: 4px; background-color: #F5B50A; }
@@ -88,18 +85,28 @@
 
         <section class="flex flex-col lg:flex-row gap-12 mb-16">
             <div class="w-full lg:w-[35%]">
-                <div class="relative w-full h-[400px] border-4 border-black rounded-3xl overflow-hidden bg-gray-300 mb-8 grayscale shadow-[8px_8px_0px_rgba(0,0,0,1)]">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <i class="fa-solid fa-user-tie text-9xl text-gray-400"></i>
-                        <p class="font-black mt-4 text-gray-500">PHOTO HERE</p>
-                    </div>
+                <div class="relative w-full h-[400px] border-4 border-black rounded-3xl overflow-hidden bg-gray-300 mb-8 grayscale hover:grayscale-0 transition-all duration-500 shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+                    <img src="{{ asset('assets/img/PROFILE PICTURE 2.jpg') }}" alt="Muhammad Ivan Ardianto" class="w-full h-full object-cover">
                 </div>
+                
                 <div id="contact" class="bg-[#F5B50A] border-4 border-black p-6 rounded-2xl shadow-[8px_8px_0px_rgba(0,0,0,1)]">
                     <h4 class="font-black text-xl mb-4 border-b-2 border-black pb-2">CONTACT ME :</h4>
-                    <ul class="space-y-3 font-bold text-sm">
-                        <li><i class="fa-solid fa-envelope w-6"></i> ivanardianto72@gmail.com</li>
-                        <li><i class="fa-brands fa-whatsapp w-6 text-lg"></i> +62 818 0579 2478</li>
-                        <li><i class="fa-brands fa-instagram w-6 text-lg"></i> ivan_dev</li>
+                    <ul class="space-y-4 font-bold text-sm">
+                        <li class="hover:translate-x-2 transition-transform duration-300">
+                            <a href="mailto:ivanardianto72@gmail.com" class="flex items-center gap-3 hover:text-white">
+                                <i class="fa-solid fa-envelope w-5 text-center text-lg"></i> ivanardianto72@gmail.com
+                            </a>
+                        </li>
+                        <li class="hover:translate-x-2 transition-transform duration-300">
+                            <a href="https://wa.me/6281805792478" target="_blank" class="flex items-center gap-3 hover:text-white">
+                                <i class="fa-brands fa-whatsapp w-5 text-center text-xl"></i> +62 818 0579 2478
+                            </a>
+                        </li>
+                        <li class="hover:translate-x-2 transition-transform duration-300">
+                            <a href="https://www.instagram.com/ivn.ttf/" target="_blank" class="flex items-center gap-3 hover:text-white">
+                                <i class="fa-brands fa-instagram w-5 text-center text-xl"></i> @ivn.ttf
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -112,13 +119,11 @@
                 <div class="grid md:grid-cols-2 gap-8 border-t-4 border-black border-dotted pt-8">
                     <div>
                         <h4 class="font-black border-b-4 border-[#F5B50A] inline-block mb-4">EDUCATION</h4>
-                        
                         <div class="mb-4">
                             <p class="font-bold">2024 - 2027 <span class="bg-[#F5B50A] text-black px-2 py-0.5 rounded-full text-xs ml-1 shadow-[2px_2px_0px_rgba(0,0,0,1)]">Studying</span></p>
                             <p class="font-black text-sm mt-1">D3 Teknologi Multimedia Broadcasting</p>
                             <p class="text-sm text-gray-600 font-bold">Politeknik Elektronika Negeri Surabaya</p>
                         </div>
-
                         <div>
                             <p class="font-bold">2021 - 2024</p>
                             <p class="font-black text-sm mt-1">IPS - Multimedia</p>
@@ -127,7 +132,6 @@
                     </div>
                     <div>
                         <h4 class="font-black border-b-4 border-[#F5B50A] inline-block mb-4">SOFTWARE SKILLS</h4>
-                        
                         <div class="flex flex-wrap gap-3">
                             <div class="w-12 h-12 bg-[#00005B] text-[#E998FF] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe Premiere Pro">Pr</div>
                             <div class="w-12 h-12 bg-[#00005B] text-[#9999FF] flex items-center justify-center rounded-xl font-black text-xl border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-pointer" title="Adobe After Effects">Ae</div>
@@ -145,9 +149,7 @@
 
         <section class="mb-32">
             <h4 class="font-black text-xl border-b-4 border-[#F5B50A] inline-block mb-10">RELEVANT EXPERIENCE</h4>
-            
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Staff Medfo</p>
@@ -158,7 +160,6 @@
                         <li>Mendokumentasikan berbagai kegiatan organisasi.</li>
                     </ul>
                 </div>
-
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Video Editor</p>
@@ -169,7 +170,6 @@
                         <li>Menguasai perangkat lunak editing standar industri.</li>
                     </ul>
                 </div>
-
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Volunteer Media Komunikasi</p>
@@ -180,7 +180,6 @@
                         <li>Menggunakan Software Editing dengan baik.</li>
                     </ul>
                 </div>
-                
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Graphic Designer</p>
@@ -191,7 +190,6 @@
                         <li>Bekerja tangkas di bawah tekanan tenggat waktu.</li>
                     </ul>
                 </div>
-
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Production Team</p>
@@ -202,7 +200,6 @@
                         <li>Berkontribusi dalam pembuatan konten visual kreatif.</li>
                     </ul>
                 </div>
-
                 <div class="relative pl-6 border-l-4 border-black">
                     <div class="absolute w-4 h-4 bg-[#F5B50A] border-2 border-black rounded-full -left-[10px] top-1"></div>
                     <p class="font-black text-lg">Designer & Videographer</p>
@@ -213,7 +210,6 @@
                         <li>Mengoperasikan Adobe CC Suite dengan mahir.</li>
                     </ul>
                 </div>
-
             </div>
         </section>
 
@@ -300,7 +296,7 @@
                 <div class="flex gap-2">
                     <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0 text-[#F5B50A]"><i class="fa-solid fa-robot text-sm"></i></div>
                     <div class="bg-white border-2 border-black rounded-xl rounded-tl-none p-3 text-sm font-bold shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-                        Halo mazeh! 👋 Aku asisten AI Ivan yang sudah ditenagai Gemini 3. Mau tanya apapun soal coding, porto Ivan, atau apa aja bebas!
+                        Halo mazeh! 👋 Aku asisten AI Ivan yang siap nemenin nongkrong di web ini. Mau tanya-tanya soal portofolio Ivan, ngobrol santai, atau bercanda juga gasss!
                     </div>
                 </div>
             </div>
@@ -337,6 +333,7 @@
         
         const API_KEY = "{{ env('GEMINI_API_KEY') }}";
         let chatOpen = false;
+        let chatHistory = [];
 
         function toggleChat() {
             chatOpen = !chatOpen;
@@ -352,43 +349,54 @@
             
             appendMessage('user', text);
             chatInput.value = '';
+            chatHistory.push({ role: "user", parts: [{ text: text }] });
 
             const tempId = "loading-" + Math.floor(Math.random() * 1000);
-            
             const loadingHTML = `
                 <div class="flex gap-2 mb-4" id="${tempId}">
                     <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0 text-[#F5B50A]"><i class="fa-solid fa-robot text-sm"></i></div>
                     <div class="bg-white border-2 border-black rounded-xl rounded-tl-none p-3 text-sm font-bold shadow-[2px_2px_0px_rgba(0,0,0,1)] animate-pulse text-gray-500 italic">
-                        Ivan-Bot lagi mikir...
+                        Ivan-Bot lagi ngetik...
                     </div>
                 </div>`;
             chatBody.innerHTML += loadingHTML;
             chatBody.scrollTop = chatBody.scrollHeight;
 
             try {
+                // SYSTEM INSTRUCTION DENGAN INFO IG TERBARU
+                const payload = {
+                    systemInstruction: {
+                        parts: [{ 
+                            text: "Kamu adalah Ivan-Bot, asisten AI gaul di portofolio Muhammad Ivan Ardianto. Sifatmu: Nyantai, natural, panggil user 'mazeh' atau 'bro'. Info penting: Instagram Ivan adalah @ivn.ttf (https://www.instagram.com/ivn.ttf/). ATURAN: 1) Balas natural sesuai konteks. 2) Jangan spam skill Ivan kecuali ditanya. 3) Jawab super singkat dan asik." 
+                        }]
+                    },
+                    contents: chatHistory
+                };
+
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: `Kamu Ivan-Bot, asisten AI web Ivan. Ivan anak TI jago Laravel, Videography & 3D. Jawab santai. DILARANG menggunakan tanda bintang (*) atau format list panjang. Jawab seperti orang chatting biasa. Pertanyaan: ${text}` }] }]
-                    })
+                    body: JSON.stringify(payload)
                 });
 
                 const data = await response.json();
-                
                 const loadingElement = document.getElementById(tempId);
                 if (loadingElement) loadingElement.remove();
 
                 if (data.candidates && data.candidates[0].content) {
-                    appendMessage('ai', data.candidates[0].content.parts[0].text);
+                    const aiReply = data.candidates[0].content.parts[0].text;
+                    appendMessage('ai', aiReply);
+                    chatHistory.push({ role: "model", parts: [{ text: aiReply }] });
                 } else if (data.error) {
                     appendMessage('ai', "Waduh mazeh, Google ngasih error nih: " + data.error.message);
+                    chatHistory.pop(); 
                 }
 
             } catch (error) {
                 const loadingElement = document.getElementById(tempId);
                 if (loadingElement) loadingElement.remove();
-                appendMessage('ai', "Koneksi terputus mazeh! Coba cek internet atau API Key kamu.");
+                appendMessage('ai', "Koneksi terputus mazeh! Coba cek internet kamu.");
+                chatHistory.pop(); 
             }
         }
 
@@ -396,17 +404,12 @@
             let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
             formattedText = formattedText.replace(/\*(.*?)\*/g, '<i>$1</i>');
             formattedText = formattedText.replace(/(\d+\.\s)/g, '<br><br>$1');
-
-            if(formattedText.startsWith('<br><br>')) {
-                formattedText = formattedText.substring(8);
-            }
+            if(formattedText.startsWith('<br><br>')) formattedText = formattedText.substring(8);
 
             let msgHTML = `<div class="flex gap-2 ${sender === 'user' ? 'justify-end' : ''} mb-4">
                 ${sender !== 'user' ? '<div class="w-8 h-8 rounded-full bg-black flex items-center justify-center flex-shrink-0 text-[#F5B50A]"><i class="fa-solid fa-robot text-sm"></i></div>' : ''}
                 <div class="${sender === 'user' ? 'bg-[#F5B50A] rounded-tr-none' : 'bg-white rounded-tl-none'} border-2 border-black rounded-xl p-3 text-sm font-bold shadow-[2px_2px_0px_rgba(0,0,0,1)] max-w-[85%] text-left whitespace-pre-line leading-relaxed">${formattedText}</div>
             </div>`;
-            
-            const API_KEY = "{{ env('GEMINI_API_KEY') }}";
             chatBody.innerHTML += msgHTML;
             chatBody.scrollTop = chatBody.scrollHeight;
         }
