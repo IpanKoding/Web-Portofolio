@@ -9,12 +9,13 @@ class PortfolioGallery extends Model
 {
     use HasFactory;
 
-    // Buka gembok untuk 3 kolom ini
-    protected $fillable = ['portfolio_id', 'tipe_konten', 'file_konten'];
+    protected $fillable = [
+        'portfolio_id', 'tipe_konten', 'file_konten' // Pastikan ini sesuai dengan kolom di databasemu
+    ];
 
-    // INI KODINGAN RELASI BARU: Gallery ini MILIK 1 Portfolio (Induk)
+    // INI RELASI BALIKANNYA: Gallery ini MILIK 1 Portfolio (Belongs-To)
     public function portfolio()
     {
-        return $this->belongsTo(Portfolio::class);
+        return $this->belongsTo(Portfolio::class, 'portfolio_id', 'id');
     }
 }
